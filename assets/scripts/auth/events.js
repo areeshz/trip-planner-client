@@ -5,8 +5,8 @@ const ui = require('./ui.js')
 const onSignIn = (event) => {
   event.preventDefault()
   console.log('you clicked the sign in button')
+
   const form = event.target
-  console.log(form)
   const data = getFormFields(form)
   console.log(data)
 
@@ -15,10 +15,25 @@ const onSignIn = (event) => {
     .catch(ui.signInFailure)
 }
 
+const onSignUp = (event) => {
+  event.preventDefault()
+  console.log('You clicked the sign UP button!')
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
 const addHandlers = () => {
   $('#sign-in-form').on('submit', onSignIn)
+  $('#sign-up-form').on('submit', onSignUp)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onSignUp
 }
