@@ -1,1 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  text-align: center;
+}
+
+.auth-form {
+  margin: 0 auto;
+  width: 400px;
+
+  input,
+  button {
+    display: block;
+    margin: 5px auto;
+  }
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
