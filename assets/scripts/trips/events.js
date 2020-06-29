@@ -28,8 +28,8 @@ const onTripCreate = (event) => {
   console.log(data)
 
   api.createTrip(data)
-    .then(console.log)
-    .catch(console.error)
+    .then(ui.createTripSuccess)
+    .catch(ui.createTripFailure)
 }
 
 const addHandlers = () => {

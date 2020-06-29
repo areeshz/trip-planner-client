@@ -13,7 +13,25 @@ const tripsIndexFailure = () => {
   $('#message').text('Trips Index Failure').removeClass().addClass('failure').show().hide(3500)
 }
 
+const createTripSuccess = (response) => {
+  $('#new-trip-form').trigger('reset')
+  $('.select').each(function () {
+    $(this)[0].selectedIndex = 0
+  })
+  $('#message').text('Trip Created Successfully!').removeClass().addClass('success').show().hide(3500)
+}
+
+const createTripFailure = () => {
+  $('#new-trip-form').trigger('reset')
+  $('.select').each(function () {
+    $(this)[0].selectedIndex = 0
+  })
+  $('#message').text('Failed to Create Trip').removeClass().addClass('failure').show().hide(3500)
+}
+
 module.exports = {
   tripsIndexSuccess,
-  tripsIndexFailure
+  tripsIndexFailure,
+  createTripSuccess,
+  createTripFailure
 }

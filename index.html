@@ -83,12 +83,37 @@
       </section>
 
       <section id="trips-create-section" class="hidden">
-        <h1>Time to Make a New Trip!</h1>
+        <h1>Time to Plan a New Trip!</h1>
         <form id="new-trip-form" class="trip-form">
-
           <div class="form-group">
-            <label for="title-input">Trip Title</label>
+            <label for="title-input">Title</label>
             <input id="title-input" class="form-control" type="text" required placeholder="Trip Title" name="trip[title]">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-7">
+              <label for="category-input">Category</label>
+              <select id="category-input" class="form-control select" required name="trip[category]">
+                <option value="" selected disabled>-</option>
+                <option value="Sightseeing">Sightseeing</option>
+                <option value="Beach">Beach</option>
+                <option value="Roadtrip">Roadtrip</option>
+                <option value="Mountains / Skiing">Mountains / Skiing</option>
+                <option value="Cruise">Cruise</option>
+                <option value="Camping / Hiking">Camping / Hiking</option>
+                <option value="Food Tour">Food Tour</option>
+                <option value="Staycation">Staycation</option>
+                <option value="Visiting Friends / Family">Visiting Friends / Family</option>
+              </select>
+            </div>
+            <div class="form-group col-5">
+              <label for="status-input">Status</label>
+              <select id="status-input" class="form-control select" required name="trip[status]">
+                <option value="" selected disabled>-</option>
+                <option value="Planned Trip">Future Trip (Plan)</option>
+                <option value="Past Trip">Past Trip (Record)</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">
@@ -96,14 +121,20 @@
             <input id="destination-input" class="form-control" type="text" required placeholder="Destination" name="trip[destination]">
           </div>
 
-          <div class="form-group">
-            <label for="category-input">Category</label>
-            <input id="category-input" class="form-control" type="text" required placeholder="Category" name="trip[category]">
+          <div class="form-row">
+            <div class="form-group col-7">
+              <label for="date-input">Date</label>
+              <input id="date-input" class="form-control" type="date" required name="trip[date]">
+            </div>
+            <div class="form-group col-5">
+              <label for="duration-input">Duration (Days)</label>
+              <input id="duration-input" class="form-control" type="number" required placeholder="1" name="trip[duration]">
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="budget-input">Budget</label>
-            <input id="budget-input" class="form-control" type="text" required placeholder="123" name="trip[budget]">
+            <label for="budget-input">Budget ($, Nearest 100)</label>
+            <input id="budget-input" class="form-control" type="number" step="100" required placeholder="100" name="trip[budget]">
           </div>
 
           <button class="btn btn-success" type="submit">Create Trip</button>
