@@ -8,6 +8,8 @@
     <p><strong>Duration (Days):</strong> {{trip.duration}}</p>
     <p><strong>Budget:</strong> ${{trip.budget}}</p>
     <p><strong>Status:</strong> {{trip.status}}</p>
+    <button data-id="{{trip._id}}" class="btn btn-info trip-edit">Edit Trip</button>
+    <button data-id="{{trip._id}}" class="btn btn-danger trip-delete">Delete Trip</button>
   </div>
 
 {{/each}}

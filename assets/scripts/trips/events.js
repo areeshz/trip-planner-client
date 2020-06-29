@@ -32,10 +32,38 @@ const onTripCreate = (event) => {
     .catch(ui.createTripFailure)
 }
 
+const toTripEdit = (event) => {
+  event.preventDefault()
+  console.log('you clicked an edit button')
+  const id = event.target.dataset.id
+  console.log('button id:', id)
+
+  api.getTrip(id)
+    .then(ui.getTripToEdit)
+    .catch(ui.getTripFailure)
+}
+
+const onTripEdit = (event) => {
+  event.preventDefault()
+  console.log('time to send these changes!!!')
+
+  const id = event.target.dataset.id
+  const form = event.target
+  const data = getFormFields(form)
+  console.log('new data:', data)
+  console.log('id to edit is:', id)
+
+  api.editTrip(data, id)
+    .then(ui.updateTripSuccess)
+    .catch(ui.updateTripFailure)
+}
+
 const addHandlers = () => {
   $('#my-trips-button').on('click', onTripsIndex)
   $('#to-new-trip').on('click', toTripCreate)
   $('#new-trip-form').on('submit', onTripCreate)
+  $('#trips-index-content').on('click', '.trip-edit', toTripEdit)
+  $('#trips-edit-section').on('submit', '#edit-trip-form', onTripEdit)
 }
 
 module.exports = {

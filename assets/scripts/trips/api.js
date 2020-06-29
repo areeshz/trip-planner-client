@@ -12,6 +12,17 @@ const tripsIndex = () => {
   })
 }
 
+const getTrip = (id) => {
+  console.log('about to get a trip')
+  return $.ajax({
+    url: config.apiUrl + '/trips/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createTrip = (data) => {
   const trip = data.trip
   return $.ajax({
@@ -26,7 +37,26 @@ const createTrip = (data) => {
   })
 }
 
+const editTrip = (data, id) => {
+  console.log('data in api file:', data)
+  const trip = data.trip
+  console.log(trip)
+
+  return $.ajax({
+    url: config.apiUrl + '/trips/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      trip
+    }
+  })
+}
+
 module.exports = {
   tripsIndex,
-  createTrip
+  createTrip,
+  getTrip,
+  editTrip
 }
