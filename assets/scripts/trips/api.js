@@ -12,6 +12,21 @@ const tripsIndex = () => {
   })
 }
 
+const createTrip = (data) => {
+  const trip = data.trip
+  return $.ajax({
+    url: config.apiUrl + '/trips',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      trip
+    }
+  })
+}
+
 module.exports = {
-  tripsIndex
+  tripsIndex,
+  createTrip
 }

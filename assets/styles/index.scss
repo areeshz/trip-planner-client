@@ -25,10 +25,24 @@ h1 {
   }
 }
 
+.trip-form {
+  margin: 0 auto;
+  width: 400px;
+  // text-align: center;
+
+  input,
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .trip {
   border: 1px solid black;
+  padding: 5px;
   width: 350px;
   margin: 5px auto;
+  background-color: white;
 }
 
 .success {

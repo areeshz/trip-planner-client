@@ -45,7 +45,7 @@
       <p id="message"></p>
 
       <h1>Trip Planner</h1>
-      <section id="sign-in-page" class="">
+      <section id="sign-in-section" class="">
         <form id="sign-in-form" class="auth-form">
           <h4 id="quick-sign-in">Sign In</h4>
           <input name="credentials[email]" placeholder="Email" type="email" required>
@@ -53,7 +53,7 @@
           <button class="btn btn-success" type="submit">Sign In</button>
         </form>
       </section>
-      <section id="sign-up-page" class="hidden">
+      <section id="sign-up-section" class="hidden">
         <form id="sign-up-form" class="auth-form">
           <h4>Sign Up</h4>
           <input name="credentials[email]" placeholder="Email" type="email" required>
@@ -76,9 +76,38 @@
       </section>
       <section id="trips-index-section" class="hidden">
         <h2 style="text-align: center">My Trips</h2>
+        <button id="to-new-trip" class="btn btn-primary">Add New Trip</button>
         <div id="trips-index-content">
 
         </div>
+      </section>
+
+      <section id="trips-create-section" class="hidden">
+        <h1>Time to Make a New Trip!</h1>
+        <form id="new-trip-form" class="trip-form">
+
+          <div class="form-group">
+            <label for="title-input">Trip Title</label>
+            <input id="title-input" class="form-control" type="text" required placeholder="Trip Title" name="trip[title]">
+          </div>
+
+          <div class="form-group">
+            <label for="destination-input">Destination</label>
+            <input id="destination-input" class="form-control" type="text" required placeholder="Destination" name="trip[destination]">
+          </div>
+
+          <div class="form-group">
+            <label for="category-input">Category</label>
+            <input id="category-input" class="form-control" type="text" required placeholder="Category" name="trip[category]">
+          </div>
+
+          <div class="form-group">
+            <label for="budget-input">Budget</label>
+            <input id="budget-input" class="form-control" type="text" required placeholder="123" name="trip[budget]">
+          </div>
+
+          <button class="btn btn-success" type="submit">Create Trip</button>
+        </form>
       </section>
 
     </body>

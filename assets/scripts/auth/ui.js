@@ -9,6 +9,7 @@ const signInSuccess = (response) => {
 
   $('#nav-outside').addClass('hidden')
   $('#nav-inside').removeClass('hidden')
+  $('#sign-in-section').addClass('hidden')
 }
 
 const signInFailure = (response) => {
