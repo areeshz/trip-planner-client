@@ -2,6 +2,22 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+const onQuickSignIn = (event) => {
+  event.preventDefault()
+
+  console.log('quick sign in')
+  const data = {
+    credentials: {
+      email: 'hello@hello',
+      password: '123'
+    }
+  }
+
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
 const onSignIn = (event) => {
   event.preventDefault()
   console.log('you clicked the sign in button')
@@ -55,6 +71,7 @@ const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-out-button').on('click', onSignOut)
   $('#change-password-form').on('submit', onChangePassword)
+  $('#quick-sign-in').on('click', onQuickSignIn)
 }
 
 module.exports = {
