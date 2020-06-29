@@ -37,8 +37,25 @@ const signOut = () => {
   })
 }
 
+const changePassword = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      passwords: {
+        old: data.passwords.old,
+        new: data.passwords.new
+      }
+    }
+  })
+}
+
 module.exports = {
   signIn,
   signUp,
-  signOut
+  signOut,
+  changePassword
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Trip Planner</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -28,6 +28,14 @@
           <input name="credentials[password]" placeholder="Password" type="password" required>
           <input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password" required>
           <button type="submit">Sign Up</button>
+        </form>
+      </section>
+      <section id="change-password-section">
+        <form id="change-password-form" class="auth-form">
+          <h4>Change Password</h4>
+          <input name="passwords[old]" placeholder="Old Password" type="password" required>
+          <input name="passwords[new]" placeholder="New Password" type="password" required>
+          <button type="submit">Change Password</button>
         </form>
       </section>
       <section id="sign-out-section" class="auth-form">

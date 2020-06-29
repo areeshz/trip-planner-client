@@ -33,11 +33,23 @@ const signOutFailure = () => {
   $('#message').text('Sign Out Failure').removeClass().addClass('failure').show().hide(3000)
 }
 
+const changePasswordSuccess = () => {
+  $('#change-password-form').trigger('reset')
+  $('#message').text('Change Password Successful').removeClass().addClass('success').show().hide(3000)
+}
+
+const changePasswordFailure = () => {
+  $('#change-password-form').trigger('reset')
+  $('#message').text('Change Password Failure').removeClass().addClass('failure').show().hide(3000)
+}
+
 module.exports = {
   signInSuccess,
   signInFailure,
   signUpSuccess,
   signUpFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
