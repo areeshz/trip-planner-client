@@ -1,0 +1,10 @@
+{{#each trips as |trip|}}
+  {{log trip}}
+  <div class="trip">
+    <p>Title: {{trip.title}}</p>
+    <p>Destination: {{trip.destination}}</p>
+    <p>Budget: {{trip.budget}}</p>
+    <p>Category: {{trip.category}}</p>
+  </div>
+
+{{/each}}

@@ -20,7 +20,7 @@
         </a>
       </nav>
       <!-- Inside Nav -->
-      <nav id="nav-inside" class="navbar navbar-expand-md navbar-dark bg-dark hidden">
+      <nav id="nav-inside" class="navbar navbar-expand-sm navbar-dark bg-dark hidden">
         <a type="button" class="navbar-brand"><img src="public/palm-tree-white-background.png" width="30" height="30" class="d-inline-block align-top nav-icon" alt="">
           Trip Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,13 +29,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">My Trips</a>
+              <a id="my-trips-button" class="nav-link">My Trips</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link">Pricing</a>
             </li>
           </ul>
         </div>
@@ -73,6 +73,12 @@
 
       <section id="home-section" >
 
+      </section>
+      <section id="trips-index-section" class="hidden">
+        <h2 style="text-align: center">My Trips</h2>
+        <div id="trips-index-content">
+
+        </div>
       </section>
 
     </body>
