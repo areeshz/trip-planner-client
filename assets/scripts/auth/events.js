@@ -28,12 +28,23 @@ const onSignUp = (event) => {
     .catch(ui.signUpFailure)
 }
 
+const onSignOut = (event) => {
+  event.preventDefault()
+  console.log('You clicked the sign OUT button!')
+
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
 const addHandlers = () => {
   $('#sign-in-form').on('submit', onSignIn)
   $('#sign-up-form').on('submit', onSignUp)
+  $('#sign-out-button').on('click', onSignOut)
 }
 
 module.exports = {
   addHandlers,
-  onSignUp
+  onSignUp,
+  onSignOut
 }

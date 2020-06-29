@@ -1,4 +1,5 @@
 const config = require('./../config.js')
+const store = require('./../store.js')
 
 const signIn = (data) => {
   console.log(data.credentials)
@@ -26,7 +27,18 @@ const signUp = (data) => {
   })
 }
 
+const signOut = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signIn,
-  signUp
+  signUp,
+  signOut
 }
