@@ -12,35 +12,68 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <!-- Outside Nav -->
+      <nav id="nav-outside" class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="public/palm-tree-white-background.png" width="30" height="30" class="d-inline-block align-top nav-icon" alt="">
+          Trip Planner
+        </a>
+      </nav>
+      <!-- Inside Nav -->
+      <nav id="nav-inside" class="navbar navbar-expand-md navbar-dark bg-dark hidden">
+        <a type="button" class="navbar-brand"><img src="public/palm-tree-white-background.png" width="30" height="30" class="d-inline-block align-top nav-icon" alt="">
+          Trip Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Trips</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+          </ul>
+        </div>
+        <button id="sign-out-button" class="btn btn-secondary">Sign Out</button>
+      </nav>
+
+      <p id="message"></p>
+
       <h1>Trip Planner</h1>
-      <section id="sign-in-page">
+      <section id="sign-in-page" class="">
         <form id="sign-in-form" class="auth-form">
           <h4>Sign In</h4>
           <input name="credentials[email]" placeholder="Email" type="email" required>
           <input name="credentials[password]" placeholder="Password" type="password" required>
-          <button type="submit">Sign In</button>
+          <button class="btn btn-success" type="submit">Sign In</button>
         </form>
       </section>
-      <section id="sign-up-page">
+      <section id="sign-up-page" class="hidden">
         <form id="sign-up-form" class="auth-form">
           <h4>Sign Up</h4>
           <input name="credentials[email]" placeholder="Email" type="email" required>
           <input name="credentials[password]" placeholder="Password" type="password" required>
           <input name="credentials[password_confirmation]" placeholder="Password Confirmation" type="password" required>
-          <button type="submit">Sign Up</button>
+          <button class="btn btn-success" type="submit">Sign Up</button>
         </form>
       </section>
-      <section id="change-password-section">
+      <section id="change-password-section" class="hidden">
         <form id="change-password-form" class="auth-form">
           <h4>Change Password</h4>
           <input name="passwords[old]" placeholder="Old Password" type="password" required>
           <input name="passwords[new]" placeholder="New Password" type="password" required>
-          <button type="submit">Change Password</button>
+          <button class="btn btn-success" type="submit">Change Password</button>
         </form>
       </section>
-      <section id="sign-out-section" class="auth-form">
-        <button id="sign-out-button">Sign Out</button>
+
+      <section id="home-section" >
+
       </section>
-      <p id="message"></p>
+
     </body>
 </html>

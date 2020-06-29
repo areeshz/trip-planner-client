@@ -6,6 +6,9 @@ const signInSuccess = (response) => {
   console.log(response)
   console.log('store is:', store)
   $('#message').text('Sign In Successful').removeClass().addClass('success').show().hide(3000)
+
+  $('#nav-outside').addClass('hidden')
+  $('#nav-inside').removeClass('hidden')
 }
 
 const signInFailure = (response) => {
@@ -27,6 +30,9 @@ const signUpFailure = (response) => {
 const signOutSuccess = () => {
   $('#message').text('Sign Out Successful').removeClass().addClass('success').show().hide(3000)
   store.user = {}
+
+  $('#nav-outside').removeClass('hidden')
+  $('#nav-inside').addClass('hidden')
 }
 
 const signOutFailure = () => {
