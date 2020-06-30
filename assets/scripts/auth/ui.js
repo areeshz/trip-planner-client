@@ -24,9 +24,9 @@ const signInSuccess = (response) => {
 
   $('#nav-outside').addClass('hidden')
   $('#nav-inside').removeClass('hidden')
-  // $('#sign-in-section').addClass('hidden')
-  $('.page').addClass('hidden')
-  $('#home-section').removeClass('hidden')
+
+  // trigger click of home page button
+  $('#home-button').trigger('click')
 }
 
 const signInFailure = (response) => {
