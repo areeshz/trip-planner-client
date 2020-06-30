@@ -42,9 +42,9 @@
         <button id="sign-out-button" class="btn btn-secondary">Sign Out</button>
       </nav>
 
-      <p id="message"></p>
+      <p id="message" class="status-message"></p>
 
-      <h1>Trip Planner</h1>
+      <!-- <h1>Trip Planner</h1> -->
       <!-- Sign In Section -->
       <section id="sign-in-section" class="page">
         <form id="sign-in-form" class="auth-form">
@@ -88,8 +88,13 @@
       <!-- My Trips Section -->
       <!-- REMOVE INLINE STYLING -->
       <section id="trips-index-section" class="hidden page">
-        <h2 style="text-align: center">My Trips</h2>
-        <button id="to-new-trip" class="btn btn-primary">Add New Trip</button>
+        <div class="page-heading">
+          <h2>My Trips</h2>
+          <h5>Select a Trip to Add Events!</h5>
+          <h5>OR</h5>
+          <button id="to-new-trip" class="btn btn-primary">Add New Trip</button>
+        </div>
+
         <div id="trips-index-content">
 
         </div>

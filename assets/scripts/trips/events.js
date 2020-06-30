@@ -65,6 +65,7 @@ const onTripCreate = (event) => {
 
   api.createTrip(data)
     .then(ui.createTripSuccess)
+    .then(() => onTripsIndex())
     .catch(ui.createTripFailure)
 }
 
@@ -104,7 +105,7 @@ const onTripRemove = (event) => {
   api.deleteTrip(tripId)
     .then(ui.deleteTripSuccess)
     // Add delay before running onTripsIndex to allow modal to fade out
-    .then(() => setTimeout(onTripsIndex, 500))
+    .then(() => setTimeout(onTripsIndex, 100))
     .catch(ui.deleteTripFailure)
 }
 

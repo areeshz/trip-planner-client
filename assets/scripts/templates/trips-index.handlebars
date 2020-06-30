@@ -6,18 +6,18 @@
      {{#if pastLogged}}
        {{#each pastTrips as |trip|}}
        <div class="trip">
-         <h5>{{trip.title}}</h5>
-         <p><strong>Destination:</strong> {{trip.destination}}</p>
+         <h4>{{limit trip.title 20}}</h4>
+         <p><strong>Destination:</strong> {{limit trip.destination 25}}</p>
          <p><strong>Category:</strong> {{trip.category}}</p>
          <p><strong>Date:</strong> {{trip.date}}</p>
          <p><strong>Duration (Days):</strong> {{trip.duration}}</p>
          <p><strong>Budget:</strong> ${{trip.budget}}</p>
          <p><strong>Status:</strong> {{trip.status}}</p>
-         <button data-id="{{trip._id}}" class="btn btn-info trip-edit">Edit Trip</button>
+         <button data-id="{{trip._id}}" class="btn btn-outline-info trip-edit">Edit Trip &#9998;</button>
 
          <!-- Button trigger modal -->
-         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{trip._id}}">
-           Delete Trip
+         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-modal-{{trip._id}}">
+           Delete Trip &#x1F5D1;
          </button>
 
          <!-- Modal -->
@@ -47,7 +47,7 @@
        {{/each}}
      {{else}}
       <div class="trip">
-        <h5>No Past Trips Logged</h5>
+        <h5>No Past Trips Logged...</h5>
         <h5>Log a Past Trip Above!</h5>
       </div>
      {{/if}}
@@ -57,18 +57,18 @@
      {{#if futureLogged}}
        {{#each futureTrips as |trip|}}
        <div class="trip">
-         <h5>{{trip.title}}</h5>
-         <p><strong>Destination:</strong> {{trip.destination}}</p>
+         <h4>{{limit trip.title 20}}</h4>
+         <p><strong>Destination:</strong> {{limit trip.destination 25}}</p>
          <p><strong>Category:</strong> {{trip.category}}</p>
          <p><strong>Date:</strong> {{trip.date}}</p>
          <p><strong>Duration (Days):</strong> {{trip.duration}}</p>
          <p><strong>Budget:</strong> ${{trip.budget}}</p>
          <p><strong>Status:</strong> {{trip.status}}</p>
-         <button data-id="{{trip._id}}" class="btn btn-info trip-edit">Edit Trip</button>
+         <button data-id="{{trip._id}}" class="btn btn-outline-info trip-edit">Edit Trip &#9998;</button>
 
          <!-- Button trigger modal -->
-         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{trip._id}}">
-           Delete Trip
+         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-modal-{{trip._id}}">
+           Delete Trip &#x1F5D1;
          </button>
 
          <!-- Modal -->
@@ -98,7 +98,7 @@
        {{/each}}
      {{else}}
      <div class="trip">
-       <h5>No Future Trips Planned</h5>
+       <h5>No Future Trips Planned...</h5>
        <h5>Plan a Future Trip Above!</h5>
      </div>
      {{/if}}
