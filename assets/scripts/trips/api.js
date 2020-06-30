@@ -54,9 +54,20 @@ const editTrip = (data, id) => {
   })
 }
 
+const deleteTrip = (tripId) => {
+  return $.ajax({
+    url: config.apiUrl + '/trips/' + tripId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   tripsIndex,
   createTrip,
   getTrip,
-  editTrip
+  editTrip,
+  deleteTrip
 }

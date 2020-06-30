@@ -70,14 +70,35 @@ const onTripEdit = (event) => {
     .catch(ui.updateTripFailure)
 }
 
+const onTripRemove = (event) => {
+  event.preventDefault()
+
+  const tripId = event.target.dataset.id
+  console.log(`you're trying to delete a trip, id:`, tripId)
+
+  api.deleteTrip(tripId)
+    .then(ui.deleteTripSuccess)
+    .then(() => onTripsIndex())
+    .catch(ui.deleteTripFailure)
+}
+
 const addHandlers = () => {
   //  Nav Buttons
   $('#my-trips-button').on('click', onTripsIndex)
   $('#home-button').on('click', toHome)
 
+  // Trip creation actions
+  // Button to show new trip form
   $('#to-new-trip').on('click', toTripCreate)
+  // Button to submit new trip form
   $('#new-trip-form').on('submit', onTripCreate)
+
+  // Buttons on each trip (trip index)
+  // Edit trip button
   $('#trips-index-content').on('click', '.trip-edit', toTripEdit)
+  // Delete trip button
+  $('#trips-index-content').on('click', '.trip-delete', onTripRemove)
+
   $('#trips-edit-section').on('submit', '#edit-trip-form', onTripEdit)
 }
 

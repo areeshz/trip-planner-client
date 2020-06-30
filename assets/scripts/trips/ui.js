@@ -56,6 +56,14 @@ const updateTripFailure = () => {
   $('#message').text('Failed to Edit Trip').removeClass().addClass('failure').show().hide(3500)
 }
 
+const deleteTripSuccess = () => {
+  $('#message').text('Trip Deleted Successfully!').removeClass().addClass('success').show().hide(3500)
+}
+
+const deleteTripFailure = () => {
+  $('#message').text('Failed to Delete Trip').removeClass().addClass('failure').show().hide(3500)
+}
+
 module.exports = {
   tripsIndexSuccess,
   tripsIndexFailure,
@@ -64,5 +72,7 @@ module.exports = {
   getTripFailure,
   getTripToEdit,
   updateTripSuccess,
-  updateTripFailure
+  updateTripFailure,
+  deleteTripSuccess,
+  deleteTripFailure
 }

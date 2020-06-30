@@ -45,12 +45,15 @@ const signUpFailure = (response) => {
 const signOutSuccess = () => {
   $('#message').text('Sign Out Successful').removeClass().addClass('success').show().hide(3000)
   store.user = {}
-
+  // switch to outside nav
   $('#nav-outside').removeClass('hidden')
   $('#nav-inside').addClass('hidden')
-
+  // hide all pages and show sign-in-section
   $('.page').addClass('hidden')
   $('#sign-in-section').removeClass('hidden')
+  // reset inside nav to "home" indication for next login
+  $('.nav-item').removeClass('active')
+  $('#home-button').parent().addClass('active')
 }
 
 const signOutFailure = () => {
