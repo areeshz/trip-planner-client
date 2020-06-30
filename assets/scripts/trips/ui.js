@@ -3,8 +3,15 @@ const tripEditTemplate = require('./../templates/trip-edit.handlebars')
 
 const tripsIndexSuccess = (data) => {
   const trips = data.trips
+  console.log('these are trips to be sorted:', trips)
+  const futureTrips = trips.filter(trip => trip.status === 'Planned Trip')
+  const pastTrips = trips.filter(trip => trip.status === 'Past Trip')
+  const pastLogged = pastTrips.length > 0
+  const futureLogged = futureTrips.length > 0
+  console.log('future trips:', futureTrips)
+  console.log('past trips:', pastTrips)
 
-  const tripsIndexHtml = tripsIndexTemplate({trips})
+  const tripsIndexHtml = tripsIndexTemplate({trips, pastTrips, futureTrips, pastLogged, futureLogged})
   $('#trips-index-content').html(tripsIndexHtml)
 
   $('.page').addClass('hidden')

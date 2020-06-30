@@ -1,7 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+$background-main: rgb(227, 231, 255);
+
 body {
-  background-color: rgb(227, 231, 255);
+  background-color: $background-main;
 }
 
 .nav-icon {
@@ -53,13 +55,18 @@ h1 {
   }
 }
 
+.trip-list {
+  text-align: center;
+}
+
 .trip {
-  border: 1px solid black;
+  // border: 1px solid black;
   padding: 20px 40px;
-  width: 450px;
-  margin: 5px auto;
+  width: 400px;
+  margin: 25px auto;
   background-color: white;
   border-radius: 10px;
+  box-shadow: 0 2px 5px;
 
   h5 {
     text-align: center;
