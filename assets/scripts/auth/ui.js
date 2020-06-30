@@ -7,7 +7,10 @@ const toSignUp = (event) => {
 }
 
 const toSignIn = (event) => {
-  event.preventDefault()
+  if (event) {
+    event.preventDefault()
+  }
+  console.log('taking you to sign in page')
   $('.page').addClass('hidden')
   $('#sign-in-section').removeClass('hidden')
 }
@@ -35,6 +38,9 @@ const signUpSuccess = (response) => {
   $('#sign-up-form').trigger('reset')
   console.log(response)
   $('#message').text('Sign Up Successful').removeClass().addClass('success').show().hide(3000)
+
+  $('.page').addClass('hidden')
+  $('#sign-in-section').removeClass('hidden')
 }
 
 const signUpFailure = (response) => {

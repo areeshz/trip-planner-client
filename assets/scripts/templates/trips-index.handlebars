@@ -9,7 +9,36 @@
     <p><strong>Budget:</strong> ${{trip.budget}}</p>
     <p><strong>Status:</strong> {{trip.status}}</p>
     <button data-id="{{trip._id}}" class="btn btn-info trip-edit">Edit Trip</button>
-    <button data-id="{{trip._id}}" class="btn btn-danger trip-delete">Delete Trip</button>
+    <!-- <button data-id="{{trip._id}}" class="btn btn-danger trip-delete">Delete Trip</button> -->
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{trip._id}}">
+      Delete Trip
+    </button>
+
+    <!-- Modal -->
+    <!-- Removed fade class from modal to get around dimmed screen bug -->
+    <div class="modal" id="delete-modal-{{trip._id}}" tabindex="-1" role="dialog" aria-labelledby="modal-{{trip.id}}-label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-{{trip.id}}-label">Delete {{trip.title}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete "{{trip.title}}"? Once deleted, trip data cannot be recovered.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+            <button type="button" class="btn btn-danger trip-delete" data-dismiss="modal" data-id="{{trip._id}}">Delete Trip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Content -->
+
   </div>
 
 {{/each}}
