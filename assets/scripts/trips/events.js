@@ -2,8 +2,19 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
 
+const toHome = (event) => {
+  $('.page').addClass('hidden')
+  $('#home-section').removeClass('hidden')
+
+  $('.nav-item').removeClass('active')
+  $('#home-button').parent().addClass('active')
+}
+
 const onTripsIndex = (event) => {
-  event.preventDefault()
+  if (event) {
+    event.preventDefault()
+  }
+
   console.log('you clicked the MY TRIPS button!')
 
   api.tripsIndex()
@@ -55,11 +66,15 @@ const onTripEdit = (event) => {
 
   api.editTrip(data, id)
     .then(ui.updateTripSuccess)
+    .then(() => onTripsIndex())
     .catch(ui.updateTripFailure)
 }
 
 const addHandlers = () => {
+  //  Nav Buttons
   $('#my-trips-button').on('click', onTripsIndex)
+  $('#home-button').on('click', toHome)
+
   $('#to-new-trip').on('click', toTripCreate)
   $('#new-trip-form').on('submit', onTripCreate)
   $('#trips-index-content').on('click', '.trip-edit', toTripEdit)

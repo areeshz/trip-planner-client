@@ -7,7 +7,11 @@ const tripsIndexSuccess = (data) => {
   const tripsIndexHtml = tripsIndexTemplate({trips})
   $('#trips-index-content').html(tripsIndexHtml)
 
+  $('.page').addClass('hidden')
   $('#trips-index-section').removeClass('hidden')
+
+  $('.nav-item').removeClass('active')
+  $('#my-trips-button').parent().addClass('active')
 }
 
 const tripsIndexFailure = () => {
@@ -38,6 +42,8 @@ const getTripToEdit = (data) => {
   const trip = data.trip
   console.log('this is the trip:', trip)
   const tripEditHtml = tripEditTemplate({trip: trip})
+
+  $('.page').addClass('hidden')
   $('#trips-edit-section').html(tripEditHtml).removeClass('hidden')
   $('#category-edit-input, #status-edit-input').each(function () { $(this).find('option[value="' + $(this).attr('data-intended') + '"]').prop('selected', true) })
 }

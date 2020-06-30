@@ -1,5 +1,17 @@
 const store = require('./../store.js')
 
+const toSignUp = (event) => {
+  event.preventDefault()
+  $('.page').addClass('hidden')
+  $('#sign-up-section').removeClass('hidden')
+}
+
+const toSignIn = (event) => {
+  event.preventDefault()
+  $('.page').addClass('hidden')
+  $('#sign-in-section').removeClass('hidden')
+}
+
 const signInSuccess = (response) => {
   $('#sign-in-form').trigger('reset')
   store.user = response.user
@@ -9,7 +21,9 @@ const signInSuccess = (response) => {
 
   $('#nav-outside').addClass('hidden')
   $('#nav-inside').removeClass('hidden')
-  $('#sign-in-section').addClass('hidden')
+  // $('#sign-in-section').addClass('hidden')
+  $('.page').addClass('hidden')
+  $('#home-section').removeClass('hidden')
 }
 
 const signInFailure = (response) => {
@@ -34,6 +48,9 @@ const signOutSuccess = () => {
 
   $('#nav-outside').removeClass('hidden')
   $('#nav-inside').addClass('hidden')
+
+  $('.page').addClass('hidden')
+  $('#sign-in-section').removeClass('hidden')
 }
 
 const signOutFailure = () => {
@@ -58,5 +75,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  toSignUp,
+  toSignIn
 }
