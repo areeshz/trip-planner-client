@@ -1,5 +1,6 @@
 const tripsIndexTemplate = require('./../templates/trips-index.handlebars')
 const tripEditTemplate = require('./../templates/trip-edit.handlebars')
+const tripShowTemplate = require('./../templates/trip-show.handlebars')
 
 const tripsIndexSuccess = (data) => {
   const trips = data.trips
@@ -52,6 +53,7 @@ const getTripToEdit = (data) => {
 
   $('.page').addClass('hidden')
   $('#trips-edit-section').html(tripEditHtml).removeClass('hidden')
+  // set all the Select elements to their intended values (matching current data)
   $('#category-edit-input, #status-edit-input').each(function () { $(this).find('option[value="' + $(this).attr('data-intended') + '"]').prop('selected', true) })
 }
 
@@ -71,6 +73,16 @@ const deleteTripFailure = () => {
   $('#message').text('Failed to Delete Trip').removeClass().addClass('failure').show().hide(3500)
 }
 
+const showTripSuccess = (data) => {
+  const trip = data.trip
+  console.log(`here's that trip:`, trip)
+  const eventsLogged = trip.events.length > 0
+  const tripShowHtml = tripShowTemplate({trip: trip, eventsLogged: eventsLogged})
+  console.log(tripShowHtml)
+  $('.page').addClass('hidden')
+  $('#trip-show-section').html(tripShowHtml).removeClass('hidden')
+}
+
 module.exports = {
   tripsIndexSuccess,
   tripsIndexFailure,
@@ -81,5 +93,6 @@ module.exports = {
   updateTripSuccess,
   updateTripFailure,
   deleteTripSuccess,
-  deleteTripFailure
+  deleteTripFailure,
+  showTripSuccess
 }

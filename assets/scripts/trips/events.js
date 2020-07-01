@@ -126,6 +126,10 @@ const onTripShow = (event) => {
   const tripId = event.target.dataset.trip
   console.log('you clicked on trip title, trip', tripId)
 
+  api.getTrip(tripId)
+    .then(ui.showTripSuccess)
+    .catch(ui.getTripFailure)
+
   // call api function for ajax GET request (show/specific trip)
   // ui success function should compile a handlebars template to generate the html for a trip-show page
   // trip show page should eventually have: little .trip section on the left side (col-6) with the event data; identical edit and save buttons; right side (col-6) should have an "events" section with an "Events" header. Similar to trips index page, if no events, have a .event box saying (create an event or something); if events present, display each event in a .event box similar to showing trips on trips index page. In either case, have a small floating form in a .event box at the bottom, 2 simple inputs: title and body, with a "create" button that creates the event, and redirects user back to the trip page (similar to a refresh) such that the new event displays from the handlebars template.
@@ -150,9 +154,14 @@ const addHandlers = () => {
   // Delete trip button
   $('#trips-index-content').on('click', '.trip-delete', onTripRemove)
   // Show trip button (heading)
-  $('#trips-index-content').on('click', '.trip-show', onTripShow)
+  $('#trips-index-content').on('click', '.trip-show-button', onTripShow)
 
+  // Submit trip edit form handler
   $('#trips-edit-section').on('submit', '#edit-trip-form', onTripEdit)
+
+  // Trip (SHOW) buttons
+  // Back button to trigger same action as #my-trips-button
+  $('#trip-show-section').on('click', '.back-button', onTripsIndex)
 }
 
 module.exports = {

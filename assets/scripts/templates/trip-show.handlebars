@@ -1,0 +1,58 @@
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <button class="back-button btn btn-secondary">&#8592; Back</button>
+      </div>
+      <div class="col-8">
+        <h2>{{trip.title}}</h2>
+        <br>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 trip-list">
+      <h3>Details</h3>
+      <div class="trip">
+        <p><strong>Destination:</strong> {{trip.destination}}</p>
+        <p><strong>Category:</strong> {{trip.category}}</p>
+        <p><strong>Date:</strong> {{trip.date}}</p>
+        <p><strong>Duration (Days):</strong> {{trip.duration}}</p>
+        <p><strong>Budget:</strong> ${{trip.budget}}</p>
+        <p><strong>Status:</strong> {{trip.status}}</p>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 trip-list">
+      <h3>Events</h3>
+      {{#if eventsLogged}}
+        <!-- Add edit and delete buttons to each event -->
+        {{#each trip.events as |event|}}
+          <div class="event">
+            <h3>{{event.title}}</h3>
+            <p>{{event.body}}</p>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="event">
+          <h3>No Events Logged</h3>
+          <h6>Log an Event Below!</h6>
+        </div>
+      {{/if}}
+      <div class="event">
+        <form class="" action="index.html" method="post">
+          <h3>Create New Event</h3>
+          <label for="event-form-title">Event Title</label>
+          <input id="event-form-title" class="form-control" type="text" name="event[title]" placeholder='E.g. Friday Night Dinner' required>
+          <label for="event-form-body">Event Details</label>
+          <textarea id="event-form-body" class="form-control" type="text" name="event[body]" placeholder='E.g. Dinner at the Steak House' required rows="1"></textarea>
+          <button id="event-create-button" type="submit" class="btn btn-outline-success">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
