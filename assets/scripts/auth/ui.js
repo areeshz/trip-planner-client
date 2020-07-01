@@ -20,7 +20,8 @@ const signInSuccess = (response) => {
   store.user = response.user
   console.log(response)
   console.log('store is:', store)
-  $('#message').text('Sign In Successful').removeClass().addClass('success').show().hide(3000)
+  $('#message').text('Sign In Successful')
+  $('#message').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 
   $('#nav-outside').addClass('hidden')
   $('#nav-inside').removeClass('hidden')
@@ -31,13 +32,13 @@ const signInSuccess = (response) => {
 
 const signInFailure = (response) => {
   $('#sign-in-form').trigger('reset')
-  $('#message').text('Sign In Failure').removeClass().addClass('failure').show().hide(3000)
+  $('#message').text('Sign In Failure').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const signUpSuccess = (response) => {
   $('#sign-up-form').trigger('reset')
   console.log(response)
-  $('#message').text('Sign Up Successful').removeClass().addClass('success').show().hide(3000)
+  $('#message').text('Sign Up Successful').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 
   $('.page').addClass('hidden')
   $('#sign-in-section').removeClass('hidden')
@@ -45,11 +46,11 @@ const signUpSuccess = (response) => {
 
 const signUpFailure = (response) => {
   $('#sign-up-form').trigger('reset')
-  $('#message').text('Sign Up Failure').removeClass().addClass('failure').show().hide(3000)
+  $('#message').text('Sign Up Failure').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const signOutSuccess = () => {
-  $('#message').text('Sign Out Successful').removeClass().addClass('success').show().hide(3000)
+  $('#message').text('Sign Out Successful').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
   store.user = {}
   // switch to outside nav
   $('#nav-outside').removeClass('hidden')
@@ -63,17 +64,17 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
-  $('#message').text('Sign Out Failure').removeClass().addClass('failure').show().hide(3000)
+  $('#message').text('Sign Out Failure').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const changePasswordSuccess = () => {
   $('#change-password-form').trigger('reset')
-  $('#message').text('Change Password Successful').removeClass().addClass('success').show().hide(3000)
+  $('#message').text('Change Password Successful').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 }
 
 const changePasswordFailure = () => {
   $('#change-password-form').trigger('reset')
-  $('#message').text('Change Password Failure').removeClass().addClass('failure').show().hide(3000)
+  $('#message').text('Change Password Failure').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 module.exports = {

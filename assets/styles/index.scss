@@ -16,16 +16,12 @@ nav {
   box-shadow: 0 0 4px;
 }
 
-// .status-message {
-//   float: right;
-// }
-
 h1 {
   text-align: center;
 }
 
 .auth-form {
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 20px 10px;
   width: 250px;
   text-align: center;
@@ -105,13 +101,14 @@ h1 {
 
 .success {
   color: green;
-  // position: absolute;
-  // right: 15px;
-  // padding-right: 35px;
+  position: absolute;
+  right: 25px;
 }
 
 .failure {
   color: red;
+  position: absolute;
+  right: 25px;
 }
 
 .hidden {
