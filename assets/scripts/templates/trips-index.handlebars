@@ -6,7 +6,7 @@
      {{#if pastLogged}}
        {{#each pastTrips as |trip|}}
        <div class="trip">
-         <h4>{{limit trip.title 20}}</h4>
+         <h4 class="trip-show" data-trip="{{trip._id}}">{{limit trip.title 20}}</h4>
          <p><strong>Destination:</strong> {{limit trip.destination 25}}</p>
          <p><strong>Category:</strong> {{trip.category}}</p>
          <p><strong>Date:</strong> {{trip.date}}</p>
@@ -57,7 +57,7 @@
      {{#if futureLogged}}
        {{#each futureTrips as |trip|}}
        <div class="trip">
-         <h4>{{limit trip.title 20}}</h4>
+         <h4 class="trip-show" data-trip="{{trip._id}}">{{limit trip.title 20}}</h4>
          <p><strong>Destination:</strong> {{limit trip.destination 25}}</p>
          <p><strong>Category:</strong> {{trip.category}}</p>
          <p><strong>Date:</strong> {{trip.date}}</p>
