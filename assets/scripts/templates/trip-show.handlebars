@@ -43,7 +43,7 @@
         </div>
       {{/if}}
       <div class="event">
-        <form class="" action="index.html" method="post">
+        <form id="event-create-form" data-id="{{trip._id}}" class="" action="index.html" method="post">
           <h3>Create New Event</h3>
           <label for="event-form-title">Event Title</label>
           <input id="event-form-title" class="form-control" type="text" name="event[title]" placeholder='E.g. Friday Night Dinner' required>

@@ -7,8 +7,10 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 const tripEvents = require('./trips/events.js')
+const eventEvents = require('./events/events.js')
 
 $(() => {
   authEvents.addHandlers()
   tripEvents.addHandlers()
+  eventEvents.addHandlers()
 })
