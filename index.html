@@ -35,7 +35,7 @@
               <a id="my-trips-button" class="nav-link">My Trips</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color:red">Pricing</a>
+              <a id="account-button" class="nav-link">Account</a>
             </li>
           </ul>
         </div>
@@ -71,16 +71,6 @@
         </form>
       </section>
 
-      <!-- Change Password Section -->
-      <section id="change-password-section" class="hidden page">
-        <form id="change-password-form" class="auth-form">
-          <h4>Change Password</h4>
-          <input name="passwords[old]" class="form-control" placeholder="Old Password" type="password" required>
-          <input name="passwords[new]" class="form-control" placeholder="New Password" type="password" required>
-          <button class="btn btn-success" type="submit">Change Password</button>
-        </form>
-      </section>
-
       <!-- Home Section -->
       <section id="home-section" class="hidden page">
         <h1>Home</h1>
@@ -99,6 +89,22 @@
         <div id="trips-index-content">
 
         </div>
+      </section>
+
+      <!-- Account Section -->
+      <section id="account-section" class="hidden page">
+        <div class="page-heading">
+          <h2>My Account</h2>
+        </div>
+        <!-- Change Password Section -->
+        <section id="change-password-section">
+          <form id="change-password-form" class="auth-form">
+            <h4>Change Password</h4>
+            <input name="passwords[old]" class="form-control" placeholder="Old Password" type="password" required>
+            <input name="passwords[new]" class="form-control" placeholder="New Password" type="password" required>
+            <button class="btn btn-success" type="submit">Change Password</button>
+          </form>
+        </section>
       </section>
 
       <!-- Create Trip Section -->

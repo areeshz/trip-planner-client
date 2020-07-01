@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
-// $background-main: rgb(227, 231, 255);
 $background-main: rgb(246, 215, 176);
 $accent-color: darken($background-main, 15%);
 
@@ -13,6 +12,7 @@ body {
   z-index: -5;
   position: absolute;
   top: -110px;
+  // bottom: 0; // implement this on a media query for smaller screens
 }
 
 .nav-icon {
@@ -29,7 +29,7 @@ h1 {
 }
 
 .auth-form {
-  margin: 100px auto;
+  margin: 125px auto;
   padding: 20px 10px;
   width: 250px;
   text-align: center;

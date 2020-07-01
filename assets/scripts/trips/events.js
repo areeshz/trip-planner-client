@@ -35,6 +35,18 @@ const toHome = (event) => {
   $('#home-button').parent().addClass('active')
 }
 
+const toAccountPage = (event) => {
+  event.preventDefault()
+
+  // show account section
+  $('.page').addClass('hidden')
+  $('#account-section').removeClass('hidden')
+
+  // update nav highlighting for account page
+  $('.nav-item').removeClass('active')
+  $('#account-button').parent().addClass('active')
+}
+
 const onTripsIndex = (event) => {
   if (event) {
     event.preventDefault()
@@ -113,6 +125,7 @@ const addHandlers = () => {
   //  Nav Buttons
   $('#my-trips-button').on('click', onTripsIndex)
   $('#home-button').on('click', toHome)
+  $('#account-button').on('click', toAccountPage)
 
   // Trip creation actions
   // Button to show new trip form
