@@ -1,10 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
-$background-main: rgb(227, 231, 255);
+// $background-main: rgb(227, 231, 255);
+$background-main: rgb(246, 215, 176);
 $accent-color: darken($background-main, 15%);
 
 body {
   background-color: $background-main;
+}
+
+.underlay {
+  width: 100%;
+  z-index: -5;
+  position: absolute;
+  top: -110px;
 }
 
 .nav-icon {

@@ -23,6 +23,8 @@ const signInSuccess = (response) => {
   $('#message').text('Sign In Successful')
   $('#message').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 
+  // Remove underlay upon sign-in
+  $('.underlay').addClass('hidden')
   $('#nav-outside').addClass('hidden')
   $('#nav-inside').removeClass('hidden')
 
@@ -58,6 +60,8 @@ const signOutSuccess = () => {
   // hide all pages and show sign-in-section
   $('.page').addClass('hidden')
   $('#sign-in-section').removeClass('hidden')
+  // Show underlay
+  $('.underlay').removeClass('hidden')
   // reset inside nav to "home" indication for next login
   $('.nav-item').removeClass('active')
   $('#home-button').parent().addClass('active')
