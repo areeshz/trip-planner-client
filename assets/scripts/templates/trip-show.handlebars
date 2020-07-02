@@ -1,5 +1,6 @@
 <div class="page-heading">
-  <div class="container">
+  <!-- Removed class "container" from below div -->
+  <div class="">
     <div class="row">
       <div class="col-2">
         <button class="back-button btn btn-secondary">&#8592; Back</button>
@@ -38,7 +39,7 @@
               </div>
             </div>
             <p class="event-body">{{event.body}}</p>
-            <button class="btn btn-outline-info event-edit" data-eventId="{{event._id}}" data-tripId="{{../tripId}}">&#9998;</button>
+            <button class="btn btn-outline-info event-toedit" data-eventId="{{event._id}}" data-tripId="{{../tripId}}">&#9998;</button>
           </div>
         {{/each}}
       {{else}}

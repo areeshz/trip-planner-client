@@ -26,7 +26,33 @@ const deleteEvent = (tripId, eventId) => {
   })
 }
 
+const getEvent = (tripId, eventId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `${config.apiUrl}/trips/${tripId}/events/${eventId}`,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateEvent = (data, tripId, eventId) => {
+  const event = data.event
+  return $.ajax({
+    method: 'PATCH',
+    url: `${config.apiUrl}/trips/${tripId}/events/${eventId}`,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      event
+    }
+  })
+}
+
 module.exports = {
   createEvent,
-  deleteEvent
+  deleteEvent,
+  getEvent,
+  updateEvent
 }
