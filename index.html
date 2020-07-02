@@ -42,14 +42,16 @@
         <button id="sign-out-button" class="btn btn-secondary">Sign Out</button>
       </nav>
 
+      <!-- Main Page Background Image -->
       <img src="public/palm-tree-background.png" alt="" class="underlay">
+      <!-- Status messages -->
       <p id="message" class="status-message"></p>
 
       <!-- <h1>Trip Planner</h1> -->
       <!-- Sign In Section -->
       <section id="sign-in-section" class="page main">
         <form id="sign-in-form" class="auth-form">
-          <h4 id="quick-sign-in">Sign In</h4>
+          <h4>Sign In</h4>
           <input name="credentials[email]" class="form-control" placeholder="Email" type="email" required>
           <input name="credentials[password]" class="form-control" placeholder="Password" type="password" required>
           <button class="btn btn-primary" type="submit">Sign In</button>
@@ -73,11 +75,10 @@
 
       <!-- Home Section -->
       <section id="home-section" class="hidden page">
-        <h1>Home</h1>
+
       </section>
 
       <!-- My Trips Section -->
-      <!-- REMOVE INLINE STYLING -->
       <section id="trips-index-section" class="hidden page">
         <div class="page-heading">
           <h2>My Trips</h2>
@@ -85,7 +86,7 @@
           <h5>OR</h5>
           <button id="to-new-trip" class="btn btn-primary">Add New Trip</button>
         </div>
-
+        <!-- To be filled by handlebars template -->
         <div id="trips-index-content">
 
         </div>
@@ -111,9 +112,22 @@
       </section>
 
       <!-- Create Trip Section -->
-      <!-- RESET DEFAULT VALUE AND SELECTED OPTIONS FOR PRODUCTION VERSION -->
       <section id="trips-create-section" class="hidden page">
-        <h1>Time to Plan a New Trip!</h1>
+        <div class="page-heading">
+          <div class="">
+            <div class="row">
+              <div class="col-2">
+                <button class="back-button btn btn-secondary">&#8592; Back</button>
+              </div>
+              <div class="col-8">
+                <h1>Time to Plan a New Trip!</h1>
+                <br>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+        </div>
+        <!-- New Trip Form -->
         <form id="new-trip-form" class="trip-form">
           <div class="form-group">
             <label for="title-create-input">Title</label>
@@ -154,7 +168,7 @@
           <div class="form-row">
             <div class="form-group col-7">
               <label for="date-create-input">Date</label>
-              <input id="date-create-input" class="form-control" type="date" required name="trip[date]" value="02/02/0202">
+              <input id="date-create-input" class="form-control" type="date" required name="trip[date]">
             </div>
             <div class="form-group col-5">
               <label for="duration-create-input">Duration (Days)</label>
@@ -171,7 +185,7 @@
         </form>
       </section>
 
-      <!-- Trip Edit Section -->
+      <!-- Trip Edit Section (handlebars template) -->
       <section id="trips-edit-section" class="hidden page"></section>
 
     </body>

@@ -1,7 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 $background-main: rgb(246, 215, 176);
-$accent-color: darken($background-main, 15%);
 
 body {
   background-color: $background-main;
@@ -11,8 +10,7 @@ body {
   width: 100%;
   z-index: -5;
   position: absolute;
-  top: -110px;
-  // bottom: 0; // implement this on a media query for smaller screens
+  bottom: 0;
 }
 
 .nav-icon {
@@ -55,7 +53,6 @@ h1 {
 .trip-form {
   margin: 0 auto;
   width: 325px;
-  // text-align: center;
 
   input,
   button {
@@ -87,10 +84,24 @@ h1 {
 .home {
   padding-left: 50px;
   padding-right: 50px;
+  margin-top: 20px;
+  text-align: center;
 
   h2 {
     margin-top: 20px;
     text-align: center;
+  }
+
+  h4,
+  h5 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
   }
 }
 
@@ -99,9 +110,9 @@ h1 {
 }
 
 .trip {
-  // border: 1px solid black;
   padding: 20px 40px;
-  width: 400px;
+  max-width: 400px;
+  min-width: 275px;
   margin: 20px auto 25px;
   background-color: white;
   border-radius: 10px;
@@ -125,7 +136,8 @@ h1 {
 
 .event {
   padding: 20px 40px;
-  width: 365px;
+  max-width: 365px;
+  min-width: 275px;
   margin: 20px auto;
   background-color: white;
   border-radius: 10px;
@@ -158,13 +170,6 @@ h1 {
   }
 }
 
-// .back-button {
-//   // position: absolute;
-//   // left: 35px;
-//   // top: 80px;
-//   margin-top: 10px;
-// }
-
 .event-x {
   display: inline-block;
   position: relative;
@@ -186,4 +191,28 @@ h1 {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .page-heading {
+    margin-top: 20px;
+
+    button {
+      margin-bottom: 10px;
+    }
+
+    .back-button {
+      margin-left: -10px;
+    }
+  }
+
+  .auth-form {
+    margin-top: 85px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .auth-form {
+    margin-top: 40px;
+  }
 }

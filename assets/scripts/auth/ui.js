@@ -10,7 +10,6 @@ const toSignIn = (event) => {
   if (event) {
     event.preventDefault()
   }
-  console.log('taking you to sign in page')
   $('.page').addClass('hidden')
   $('#sign-in-section').removeClass('hidden')
 }
@@ -18,8 +17,6 @@ const toSignIn = (event) => {
 const signInSuccess = (response) => {
   $('#sign-in-form').trigger('reset')
   store.user = response.user
-  console.log(response)
-  console.log('store is:', store)
   $('#message').text('Sign In Successful')
   $('#message').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 
@@ -39,7 +36,6 @@ const signInFailure = (response) => {
 
 const signUpSuccess = (response) => {
   $('#sign-up-form').trigger('reset')
-  console.log(response)
   $('#message').text('Sign Up Successful').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 
   $('.page').addClass('hidden')

@@ -2,7 +2,6 @@ const config = require('./../config.js')
 const store = require('./../store.js')
 
 const signIn = (data) => {
-  console.log(data.credentials)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -16,7 +15,6 @@ const signIn = (data) => {
 }
 
 const signUp = (data) => {
-  console.log(data.credentials)
   const credentials = data.credentials
   return $.ajax({
     url: config.apiUrl + '/sign-up',

@@ -14,11 +14,13 @@ const deleteEventFailure = () => {
 
 const renderEditForm = (response, eventBox, tripId) => {
   const event = response.event
-  console.log('event is', event)
   const eventEditHtml = eventEditTemplate({event, tripId})
   eventBox.html(eventEditHtml)
   $('.event-toedit').prop('disabled', true).css('cursor', 'not-allowed')
   $('.event-delete').prop('disabled', true).css('cursor', 'not-allowed')
+  $('#event-create-button').prop('disabled', true).css('cursor', 'not-allowed')
+  $('#event-form-title').prop('disabled', true).css('cursor', 'not-allowed')
+  $('#event-form-body').prop('disabled', true).css('cursor', 'not-allowed')
 }
 
 const getEventFailure = () => {

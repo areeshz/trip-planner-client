@@ -5,14 +5,30 @@ const homePageTemplate = require('./../templates/home-page.handlebars')
 const store = require('./../store.js')
 
 const loadHome = (response) => {
-  // console.log('home page response', response)
+  const today = new Date(Date.now())
+  const days = 'Sunday Monday Tuesday Wednesday Thursday Friday Saturday'.split(' ')
+  const day = days[today.getDay()]
+  const months = 'January February March April May June July August September October November December'.split(' ')
+  const month = months[today.getMonth()]
+  const dayNum = today.getDate()
+  const year = today.getFullYear()
+
+  const fullDate = `${day}, ${month} ${dayNum}, ${year}`
+
   const trips = response.trips
+
   const stats = {
     trips: trips,
-    numTrips: trips.length
+    numTrips: trips.length,
+    numFuture: trips.filter(trip => trip.status === 'Planned Trip').length,
+    numPast: trips.filter(trip => trip.status === 'Past Trip').length,
+    anyPlans: trips.filter(trip => trip.status === 'Planned Trip').length > 0
   }
-  console.log('these are the stats', stats)
-  const homePageHtml = homePageTemplate({stats: stats, user: store.user})
+  const homePageHtml = homePageTemplate({
+    stats: stats,
+    user: store.user,
+    date: fullDate
+  })
   $('#home-section').html(homePageHtml)
 
   // hide all other pages and display home page
@@ -26,13 +42,10 @@ const loadHomeFailure = () => {
 
 const tripsIndexSuccess = (data) => {
   const trips = data.trips
-  console.log('these are trips to be sorted:', trips)
   const futureTrips = trips.filter(trip => trip.status === 'Planned Trip')
   const pastTrips = trips.filter(trip => trip.status === 'Past Trip')
   const pastLogged = pastTrips.length > 0
   const futureLogged = futureTrips.length > 0
-  console.log('future trips:', futureTrips)
-  console.log('past trips:', pastTrips)
 
   const tripsIndexHtml = tripsIndexTemplate({trips, pastTrips, futureTrips, pastLogged, futureLogged})
   $('#trips-index-content').html(tripsIndexHtml)
@@ -70,7 +83,6 @@ const getTripFailure = () => {
 
 const getTripToEdit = (data) => {
   const trip = data.trip
-  console.log('this is the trip:', trip)
   const tripEditHtml = tripEditTemplate({trip: trip})
 
   $('.page').addClass('hidden')
@@ -97,11 +109,9 @@ const deleteTripFailure = () => {
 
 const showTripSuccess = (data) => {
   const trip = data.trip
-  console.log(`here's that trip:`, trip)
   const eventsLogged = trip.events.length > 0
   const tripId = trip._id
   const tripShowHtml = tripShowTemplate({trip: trip, eventsLogged: eventsLogged, tripId: tripId})
-  console.log(tripShowHtml)
   $('.page').addClass('hidden')
   $('#trip-show-section').html(tripShowHtml).removeClass('hidden')
 }

@@ -12,14 +12,11 @@ const onTripShow = (tripId) => {
 
 const onCreateEvent = (event) => {
   event.preventDefault()
-  console.log('you clicked the create button')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log('create event data:', data)
 
   const tripId = form.dataset.id
-  console.log('this is for trip:', tripId)
 
   api.createEvent(data, tripId)
     .then(ui.createEventSuccess)
@@ -35,8 +32,6 @@ const onEventDelete = (event) => {
   const tripId = data.tripid
   const eventId = data.eventid
 
-  console.log('trip id\n', tripId, '\n', 'event id\n', eventId)
-
   api.deleteEvent(tripId, eventId)
     .then(() => onTripShow(tripId))
     .catch(ui.deleteEventFailure)
@@ -45,18 +40,8 @@ const onEventDelete = (event) => {
 const toEventEdit = (event) => {
   event.preventDefault()
 
-  console.log('you clicked the event edit button!')
   const button = event.target
-  console.log('button is', button)
   const eventBox = $(button).parent()
-  // console.log('eventBox is', eventBox)
-  // const text = eventBox[0].innerText
-  // const contents = text.split('\n')
-  // console.log('text is', text)
-  // console.log('contents are:', contents)
-  // const title = contents[0]
-  // const body = contents[3]
-  // console.log('title is:', title, '\n', 'body is:', )
 
   let data = event.target.dataset
   data = JSON.parse(JSON.stringify(data))
@@ -65,13 +50,11 @@ const toEventEdit = (event) => {
 
   api.getEvent(tripId, eventId)
     .then((response) => ui.renderEditForm(response, eventBox, tripId))
-    // .then((response) => console.log(response, '\n', 'testing scope:\n', eventBox))
     .catch(ui.getEventFailure)
 }
 
 const onEventEdit = (event) => {
   event.preventDefault()
-  console.log('you just edited an event')
 
   const form = event.target
   const data = getFormFields(form)
@@ -80,9 +63,6 @@ const onEventEdit = (event) => {
   dataset = JSON.parse(JSON.stringify(dataset))
   const tripId = dataset.tripid
   const eventId = dataset.eventid
-
-  console.log('trip id\n', tripId, '\n', 'event id\n', eventId)
-  console.log('data is', data)
 
   api.updateEvent(data, tripId, eventId)
     .then(() => onTripShow(tripId))

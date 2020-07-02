@@ -2,7 +2,6 @@ const config = require('./../config.js')
 const store = require('./../store.js')
 
 const tripsIndex = () => {
-  console.log('this is the trips index')
   return $.ajax({
     url: config.apiUrl + '/trips',
     method: 'GET',
@@ -13,7 +12,6 @@ const tripsIndex = () => {
 }
 
 const getTrip = (id) => {
-  console.log('about to get a trip')
   return $.ajax({
     url: config.apiUrl + '/trips/' + id,
     method: 'GET',
@@ -38,9 +36,7 @@ const createTrip = (data) => {
 }
 
 const editTrip = (data, id) => {
-  console.log('data in api file:', data)
   const trip = data.trip
-  console.log(trip)
 
   return $.ajax({
     url: config.apiUrl + '/trips/' + id,

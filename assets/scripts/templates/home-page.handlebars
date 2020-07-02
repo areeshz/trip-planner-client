@@ -1,8 +1,21 @@
 <div class="page-heading">
   <h1>Dashboard</h1>
+  <h2>Welcome {{user.email}}</h2>
 </div>
 
 <div class="home">
-  <h2>Welcome {{user.email}}</h2>
-  <p>You have {{stats.numTrips}} trip(s)!</p>
+  <div class="row">
+    <div class="col-md-6 col-12">
+      <h4>Today is {{date}}</h4>
+      <h5>You have {{stats.numFuture}} future trip(s) planned and {{stats.numPast}} past trip(s) recorded!</h5>
+      {{#if stats.anyPlans}}
+      <h5><em>Happy Travels!</em></h5>
+      {{else}}
+      <h5><em>Plan your next trip today!</em></h5>
+      {{/if}}
+    </div>
+    <div class="col-md-6 col-12">
+      <img src="public/luggage.png">
+    </div>
+  </div>
 </div>
