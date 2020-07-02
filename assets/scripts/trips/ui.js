@@ -1,6 +1,28 @@
 const tripsIndexTemplate = require('./../templates/trips-index.handlebars')
 const tripEditTemplate = require('./../templates/trip-edit.handlebars')
 const tripShowTemplate = require('./../templates/trip-show.handlebars')
+const homePageTemplate = require('./../templates/home-page.handlebars')
+const store = require('./../store.js')
+
+const loadHome = (response) => {
+  // console.log('home page response', response)
+  const trips = response.trips
+  const stats = {
+    trips: trips,
+    numTrips: trips.length
+  }
+  console.log('these are the stats', stats)
+  const homePageHtml = homePageTemplate({stats: stats, user: store.user})
+  $('#home-section').html(homePageHtml)
+
+  // hide all other pages and display home page
+  $('.page').addClass('hidden')
+  $('#home-section').removeClass('hidden')
+}
+
+const loadHomeFailure = () => {
+  $('#message').text('Failed to Retrieve Dashboard Data').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
+}
 
 const tripsIndexSuccess = (data) => {
   const trips = data.trips
@@ -23,7 +45,7 @@ const tripsIndexSuccess = (data) => {
 }
 
 const tripsIndexFailure = () => {
-  $('#message').text('Trips Index Failure').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Trips Index Failure').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const createTripSuccess = (response) => {
@@ -31,7 +53,7 @@ const createTripSuccess = (response) => {
   $('.select').each(function () {
     $(this)[0].selectedIndex = 0
   })
-  $('#message').text('Trip Created Successfully!').removeClass().addClass('success').show().hide(3500)
+  $('#message').text('Trip Created Successfully!').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 }
 
 const createTripFailure = () => {
@@ -39,11 +61,11 @@ const createTripFailure = () => {
   $('.select').each(function () {
     $(this)[0].selectedIndex = 0
   })
-  $('#message').text('Failed to Create Trip').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Create Trip').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const getTripFailure = () => {
-  $('#message').text('Failed to Fetch Trip Data').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Fetch Trip Data').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const getTripToEdit = (data) => {
@@ -58,19 +80,19 @@ const getTripToEdit = (data) => {
 }
 
 const updateTripSuccess = () => {
-  $('#message').text('Trip Edited Successfully!').removeClass().addClass('success').show().hide(3500)
+  $('#message').text('Trip Edited Successfully!').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 }
 
 const updateTripFailure = () => {
-  $('#message').text('Failed to Edit Trip').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Edit Trip').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const deleteTripSuccess = () => {
-  $('#message').text('Trip Deleted Successfully!').removeClass().addClass('success').show().hide(3500)
+  $('#message').text('Trip Deleted Successfully!').removeClass().addClass('success').hide().show(500).delay(1500).hide(500)
 }
 
 const deleteTripFailure = () => {
-  $('#message').text('Failed to Delete Trip').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Delete Trip').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const showTripSuccess = (data) => {
@@ -95,5 +117,7 @@ module.exports = {
   updateTripFailure,
   deleteTripSuccess,
   deleteTripFailure,
-  showTripSuccess
+  showTripSuccess,
+  loadHome,
+  loadHomeFailure
 }

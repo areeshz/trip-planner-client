@@ -1,28 +1,11 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields.js')
-const homePageTemplate = require('./../templates/home-page.handlebars')
 
 const loadHomePage = () => {
   api.tripsIndex()
-    .then((response) => {
-      // console.log('home page response', response)
-      const trips = response.trips
-      const stats = {
-        trips: trips,
-        numTrips: trips.length
-      }
-      console.log('these are the stats', stats)
-      const homePageHtml = homePageTemplate({stats: stats})
-      $('#home-section').html(homePageHtml)
-    })
-    .catch(() => {
-      $('#message').text('Failed to Retrieve Dashboard Data').removeClass().addClass('failure').show().hide(3500)
-    })
-
-  // hide all other pages and display home page
-  $('.page').addClass('hidden')
-  $('#home-section').removeClass('hidden')
+    .then(ui.loadHome)
+    .catch(ui.loadHomeFailure)
 }
 
 const toHome = (event) => {
@@ -117,7 +100,7 @@ const onTripRemove = (event) => {
   api.deleteTrip(tripId)
     .then(ui.deleteTripSuccess)
     // Add delay before running onTripsIndex to allow modal to fade out
-    .then(() => setTimeout(onTripsIndex, 100))
+    .then(() => setTimeout(onTripsIndex, 300))
     .catch(ui.deleteTripFailure)
 }
 

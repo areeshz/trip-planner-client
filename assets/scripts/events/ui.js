@@ -5,11 +5,11 @@ const createEventSuccess = () => {
 }
 
 const createEventFailure = () => {
-  $('#message').text('Failed to Create Event').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Create Event').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const deleteEventFailure = () => {
-  $('#message').text('Failed to Delete Event').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Delete Event').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const renderEditForm = (response, eventBox, tripId) => {
@@ -22,11 +22,11 @@ const renderEditForm = (response, eventBox, tripId) => {
 }
 
 const getEventFailure = () => {
-  $('#message').text('Failed to Fetch Event Data').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Fetch Event Data').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 const updateEventFailure = () => {
-  $('#message').text('Failed to Update Event').removeClass().addClass('failure').show().hide(3500)
+  $('#message').text('Failed to Update Event').removeClass().addClass('failure').hide().show(500).delay(1500).hide(500)
 }
 
 module.exports = {
