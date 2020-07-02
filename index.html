@@ -117,15 +117,15 @@
         <form id="new-trip-form" class="trip-form">
           <div class="form-group">
             <label for="title-create-input">Title</label>
-            <input id="title-create-input" class="form-control" type="text" required placeholder="Trip Title" name="trip[title]">
+            <input id="title-create-input" class="form-control" type="text" required placeholder="E.g. Weekend Getaway" name="trip[title]">
           </div>
 
           <div class="form-row">
             <div class="form-group col-7">
               <label for="category-create-input">Category</label>
               <select id="category-create-input" class="form-control select" required name="trip[category]">
-                <option value="" disabled>-</option>
-                <option value="Sightseeing" selected>Sightseeing</option>
+                <option value="" disabled selected>-</option>
+                <option value="Sightseeing">Sightseeing</option>
                 <option value="Beach">Beach</option>
                 <option value="Roadtrip">Roadtrip</option>
                 <option value="Mountains / Skiing">Mountains / Skiing</option>
@@ -139,8 +139,8 @@
             <div class="form-group col-5">
               <label for="status-create-input">Status</label>
               <select id="status-create-input" class="form-control select" required name="trip[status]">
-                <option value="" disabled>-</option>
-                <option value="Planned Trip" selected>Future Trip (Plan)</option>
+                <option value="" disabled selected>-</option>
+                <option value="Planned Trip">Future Trip (Plan)</option>
                 <option value="Past Trip">Past Trip (Record)</option>
               </select>
             </div>
@@ -148,7 +148,7 @@
 
           <div class="form-group">
             <label for="destination-create-input">Destination</label>
-            <input id="destination-create-input" class="form-control" type="text" required placeholder="Destination" name="trip[destination]" value="Some Place">
+            <input id="destination-create-input" class="form-control" type="text" required placeholder="E.g. Chicago" name="trip[destination]">
           </div>
 
           <div class="form-row">
@@ -158,13 +158,13 @@
             </div>
             <div class="form-group col-5">
               <label for="duration-create-input">Duration (Days)</label>
-              <input id="duration-create-input" class="form-control" type="number" required placeholder="1" name="trip[duration]" value="3">
+              <input id="duration-create-input" class="form-control" type="number" required placeholder="E.g. 2" name="trip[duration]">
             </div>
           </div>
 
           <div class="form-group">
             <label for="budget-create-input">Budget ($, Nearest 100)</label>
-            <input id="budget-create-input" class="form-control" type="number" step="100" required placeholder="100" name="trip[budget]" value="500">
+            <input id="budget-create-input" class="form-control" type="number" step="100" required placeholder="E.g. 600" name="trip[budget]">
           </div>
 
           <button class="btn btn-success" type="submit">Create Trip</button>
