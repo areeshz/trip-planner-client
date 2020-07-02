@@ -115,7 +115,7 @@ h1 {
 
 .event {
   padding: 20px 40px;
-  width: 350px;
+  width: 365px;
   margin: 20px auto;
   background-color: white;
   border-radius: 10px;
@@ -137,6 +137,15 @@ h1 {
   button {
     margin-top: 10px;
   }
+
+  .event-title {
+    text-align: left;
+    flex-grow: 5;
+  }
+
+  .event-body {
+    text-align: left;
+  }
 }
 
 // .back-button {
@@ -145,6 +154,13 @@ h1 {
 //   // top: 80px;
 //   margin-top: 10px;
 // }
+
+.event-x {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  right: -55px;
+}
 
 .success {
   color: green;

@@ -16,6 +16,17 @@ const createEvent = (data, tripId) => {
   })
 }
 
+const deleteEvent = (tripId, eventId) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `${config.apiUrl}/trips/${tripId}/events/${eventId}`,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  createEvent
+  createEvent,
+  deleteEvent
 }

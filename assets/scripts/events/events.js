@@ -27,9 +27,27 @@ const onCreateEvent = (event) => {
     .catch(ui.createEventFailure)
 }
 
+const onEventDelete = (event) => {
+  event.preventDefault()
+
+  let data = event.target.dataset
+  data = JSON.parse(JSON.stringify(data))
+  const tripId = data.tripid
+  const eventId = data.eventid
+
+  console.log('trip id\n', tripId, '\n', 'event id\n', eventId)
+
+  api.deleteEvent(tripId, eventId)
+    .then(() => onTripShow(tripId))
+    .catch(ui.deleteEventFailure)
+}
+
 const addHandlers = () => {
   // Create event button
   $('#trip-show-section').on('submit', '#event-create-form', onCreateEvent)
+
+  // Edit event button
+  $('#trip-show-section').on('click', '.event-delete', onEventDelete)
 }
 
 module.exports = {

@@ -29,11 +29,16 @@
     <div class="col-12 col-lg-6 trip-list">
       <h3>Events</h3>
       {{#if eventsLogged}}
-        <!-- Add edit and delete buttons to each event -->
         {{#each trip.events as |event|}}
           <div class="event">
-            <h3>{{event.title}}</h3>
-            <p>{{event.body}}</p>
+            <div class="row">
+              <h3 class="col-10 event-title">{{event.title}}</h3>
+              <div class="col-1">
+                <button class="btn btn-outline-danger event-delete" data-eventId="{{event._id}}" data-tripId="{{../tripId}}">&#x1F5D1;</button>
+              </div>
+            </div>
+            <p class="event-body">{{event.body}}</p>
+            <button class="btn btn-outline-info event-edit" data-eventId="{{event._id}}" data-tripId="{{../tripId}}">&#9998;</button>
           </div>
         {{/each}}
       {{else}}
@@ -43,7 +48,7 @@
         </div>
       {{/if}}
       <div class="event">
-        <form id="event-create-form" data-id="{{trip._id}}" class="" action="index.html" method="post">
+        <form id="event-create-form" data-id="{{trip._id}}">
           <h3>Create New Event</h3>
           <label for="event-form-title">Event Title</label>
           <input id="event-form-title" class="form-control" type="text" name="event[title]" placeholder='E.g. Friday Night Dinner' required>

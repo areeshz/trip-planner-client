@@ -77,7 +77,8 @@ const showTripSuccess = (data) => {
   const trip = data.trip
   console.log(`here's that trip:`, trip)
   const eventsLogged = trip.events.length > 0
-  const tripShowHtml = tripShowTemplate({trip: trip, eventsLogged: eventsLogged})
+  const tripId = trip._id
+  const tripShowHtml = tripShowTemplate({trip: trip, eventsLogged: eventsLogged, tripId: tripId})
   console.log(tripShowHtml)
   $('.page').addClass('hidden')
   $('#trip-show-section').html(tripShowHtml).removeClass('hidden')
