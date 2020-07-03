@@ -1,9 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 
 $background-main: rgb(246, 215, 176);
+$link-initial: #007bff;
+$link-hover: darken($link-initial, 10%);
 
 body {
   background-color: $background-main;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.call-to-action {
+  cursor: pointer;
+  display: table;
+  margin: 0 auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .underlay {
@@ -120,12 +136,16 @@ h1 {
 
   h4 {
     text-align: center;
-    margin-bottom: 20px;
+    display: table;
+    margin: 0 auto 20px;
+    // margin-bottom: 20px;
+    color: $link-initial;
 
     &:hover {
-      font-weight: bold;
+      // font-weight: bold;
       text-decoration: underline;
       cursor: pointer;
+      color: $link-hover;
     }
   }
 
@@ -167,6 +187,10 @@ h1 {
 
   .event-body {
     text-align: left;
+  }
+
+  .event-delete {
+    padding-left: 7px;
   }
 }
 

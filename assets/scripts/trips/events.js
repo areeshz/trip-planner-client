@@ -43,6 +43,11 @@ const onTripsIndex = (event) => {
 const toTripCreate = (event) => {
   event.preventDefault()
 
+  $('#new-trip-form').trigger('reset')
+  $('.select').each(function () {
+    $(this)[0].selectedIndex = 0
+  })
+
   $('#trips-index-section').addClass('hidden')
   $('#trips-create-section').removeClass('hidden')
 }
@@ -108,6 +113,9 @@ const addHandlers = () => {
   $('#my-trips-button').on('click', onTripsIndex)
   $('#home-button').on('click', toHome)
   $('#account-button').on('click', toAccountPage)
+
+  // Call to action button (plan your next trip today) redirect to My Trips page
+  $('#home-section').on('click', '.call-to-action', onTripsIndex)
 
   // Trip creation actions
   // Button to show new trip form
