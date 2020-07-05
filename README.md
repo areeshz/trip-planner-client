@@ -3,9 +3,9 @@
 Trip Planner is a full-stack application that allows users to both log information about past trips taken, and plan upcoming trips. Users can also plan or keep a log of events that occur on a trip.
 
 ## Links
-Client Application: [https://areeshz.github.io/trip-planner-client/](https://areeshz.github.io/trip-planner-client/)
-Trip-Planner API: [https://areeshz-trip-planner.herokuapp.com/](https://areeshz-trip-planner.herokuapp.com/)
-Back-End Repository: [https://github.com/areeshz/trip-planner-server](https://github.com/areeshz/trip-planner-server)
+- Client Application: [https://areeshz.github.io/trip-planner-client/](https://areeshz.github.io/trip-planner-client/)
+- Trip-Planner API: [https://areeshz-trip-planner.herokuapp.com/](https://areeshz-trip-planner.herokuapp.com/)
+- Back-End Repository: [https://github.com/areeshz/trip-planner-server](https://github.com/areeshz/trip-planner-server)
 
 ## Technologies Used
 
