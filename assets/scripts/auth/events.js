@@ -2,6 +2,12 @@ const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+const onDemoSignIn = () => {
+  api.demoSignIn()
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
 const onSignIn = (event) => {
   event.preventDefault()
 
@@ -50,6 +56,7 @@ const addHandlers = () => {
   $('#change-password-form').on('submit', onChangePassword)
   $('#to-sign-up').on('click', ui.toSignUp)
   $('#to-sign-in').on('click', ui.toSignIn)
+  $('#demo-sign-in').on('click', onDemoSignIn)
 }
 
 module.exports = {

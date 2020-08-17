@@ -1,6 +1,19 @@
 const config = require('./../config.js')
 const store = require('./../store.js')
 
+const demoSignIn = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data: {
+      credentials: {
+        email: 'demo@tripplanner.com',
+        password: 'demo123'
+      }
+    }
+  })
+}
+
 const signIn = (data) => {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
@@ -55,5 +68,6 @@ module.exports = {
   signIn,
   signUp,
   signOut,
-  changePassword
+  changePassword,
+  demoSignIn
 }
