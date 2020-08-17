@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Trip Planner</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <!-- Outside Nav -->
+      <nav id="nav-outside" class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">
+          <img src="public/palm-tree-white-background.png" width="30" height="30" class="d-inline-block align-top nav-icon" alt="">
+          Trip Planner
+        </a>
+      </nav>
+      <!-- Inside Nav -->
+      <nav id="nav-inside" class="navbar navbar-expand-sm navbar-dark bg-dark hidden">
+        <a class="navbar-brand"><img src="public/palm-tree-white-background.png" width="30" height="30" class="d-inline-block align-top nav-icon" alt="">
+          Trip Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a id="home-button" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a id="my-trips-button" class="nav-link">My Trips</a>
+            </li>
+            <li class="nav-item">
+              <a id="account-button" class="nav-link">Account</a>
+            </li>
+          </ul>
+        </div>
+        <button id="sign-out-button" class="btn btn-secondary">Sign Out</button>
+      </nav>
+
+      <!-- Main Page Background Image -->
+      <img src="public/palm-tree-background.png" alt="" class="underlay">
+      <!-- Status messages -->
+      <p id="message" class="status-message"></p>
+
+      <!-- <h1>Trip Planner</h1> -->
+      <!-- Sign In Section -->
+      <section id="sign-in-section" class="page main">
+        <form id="sign-in-form" class="auth-form">
+          <h4>Sign In</h4>
+          <input name="credentials[email]" class="form-control" placeholder="Email" type="email" required>
+          <input name="credentials[password]" class="form-control" placeholder="Password" type="password" required>
+          <button class="btn btn-primary" type="submit">Sign In</button>
+          <hr>
+          <button id="to-sign-up" class="btn btn-success">Create New Account</button>
+        </form>
+
+        <div class='demo-box'>
+          <h3>Demo Mode</h3>
+          <p>Click below to sign in with Demo credentials.</p>
+          <button id='demo-sign-in' class='btn btn-success'>Demo</button>
+        </div>
+      </section>
+
+      <!-- Sign Up Section -->
+      <section id="sign-up-section" class="hidden page">
+        <form id="sign-up-form" class="auth-form">
+          <h4>Sign Up</h4>
+          <input name="credentials[email]" class="form-control" placeholder="Email" type="email" required>
+          <input name="credentials[password]" class="form-control" placeholder="Password" type="password" required>
+          <input name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" type="password" required>
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+          <hr>
+          <button id="to-sign-in" class="btn btn-success">Sign In</button>
+        </form>
+      </section>
+
+      <!-- Home Section -->
+      <section id="home-section" class="hidden page">
+
+      </section>
+
+      <!-- My Trips Section -->
+      <section id="trips-index-section" class="hidden page">
+        <div class="page-heading">
+          <h2>My Trips</h2>
+          <h5>Select a Trip to Add Events!</h5>
+          <h5>OR</h5>
+          <button id="to-new-trip" class="btn btn-primary">Add New Trip</button>
+        </div>
+        <!-- To be filled by handlebars template -->
+        <div id="trips-index-content">
+
+        </div>
+      </section>
+
+      <!-- Trip Show Section (to be filled by handlebars template) -->
+      <section id="trip-show-section" class="hidden page"></section>
+
+      <!-- Account Section -->
+      <section id="account-section" class="hidden page">
+        <div class="page-heading">
+          <h2>My Account</h2>
+        </div>
+        <!-- Change Password Section -->
+        <section id="change-password-section">
+          <form id="change-password-form" class="auth-form">
+            <h4>Change Password</h4>
+            <input name="passwords[old]" class="form-control" placeholder="Old Password" type="password" required>
+            <input name="passwords[new]" class="form-control" placeholder="New Password" type="password" required>
+            <button class="btn btn-success" type="submit">Change Password</button>
+          </form>
+        </section>
+      </section>
+
+      <!-- Create Trip Section -->
+      <section id="trips-create-section" class="hidden page">
+        <div class="page-heading">
+          <div class="">
+            <div class="row">
+              <div class="col-2">
+                <button class="back-button btn btn-secondary">&#8592; Back</button>
+              </div>
+              <div class="col-8">
+                <h1>Time to Plan a New Trip!</h1>
+                <br>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+        </div>
+        <!-- New Trip Form -->
+        <form id="new-trip-form" class="trip-form">
+          <div class="form-group">
+            <label for="title-create-input">Title</label>
+            <input id="title-create-input" class="form-control" type="text" required placeholder="E.g. Weekend Getaway" name="trip[title]">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-7">
+              <label for="category-create-input">Category</label>
+              <select id="category-create-input" class="form-control select" required name="trip[category]">
+                <option value="" disabled selected>-</option>
+                <option value="Sightseeing">Sightseeing</option>
+                <option value="Beach">Beach</option>
+                <option value="Roadtrip">Roadtrip</option>
+                <option value="Mountains / Skiing">Mountains / Skiing</option>
+                <option value="Cruise">Cruise</option>
+                <option value="Camping / Hiking">Camping / Hiking</option>
+                <option value="Food Tour">Food Tour</option>
+                <option value="Staycation">Staycation</option>
+                <option value="Visiting Friends / Family">Visiting Friends / Family</option>
+              </select>
+            </div>
+            <div class="form-group col-5">
+              <label for="status-create-input">Status</label>
+              <select id="status-create-input" class="form-control select" required name="trip[status]">
+                <option value="" disabled selected>-</option>
+                <option value="Planned Trip">Future Trip (Plan)</option>
+                <option value="Past Trip">Past Trip (Record)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="destination-create-input">Destination</label>
+            <input id="destination-create-input" class="form-control" type="text" required placeholder="E.g. Chicago" name="trip[destination]">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-7">
+              <label for="date-create-input">Date</label>
+              <input id="date-create-input" class="form-control" type="date" required name="trip[date]">
+            </div>
+            <div class="form-group col-5">
+              <label for="duration-create-input">Duration (Days)</label>
+              <input id="duration-create-input" class="form-control" type="number" required placeholder="E.g. 2" name="trip[duration]">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget-create-input">Budget ($, Nearest 100)</label>
+            <input id="budget-create-input" class="form-control" type="number" step="100" required placeholder="E.g. 600" name="trip[budget]">
+          </div>
+
+          <button class="btn btn-success" type="submit">Create Trip</button>
+        </form>
+      </section>
+
+      <!-- Trip Edit Section (handlebars template) -->
+      <section id="trips-edit-section" class="hidden page"></section>
+
+    </body>
+</html>
